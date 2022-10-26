@@ -1,11 +1,21 @@
 import React from "react";
+import { useState, useEffect } from 'react';
 
 import NavBar from "./components/Navbar";
 import Tweet from "./components/Tweet";
 
+import { fetchTweets } from "./util.js";
+
 import "./css/containers.css"
 
 function App() {
+  const [tweets, setTweets] = useState([]);
+  fetchTweets();
+
+  /* useEffect(() => {
+    setTweets(fetchTweets());
+  }, []); */
+    
   return (
     <div className="App">
       <NavBar />
